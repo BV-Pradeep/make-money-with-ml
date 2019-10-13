@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us{% endblock %}
+
+
+{% block body %}
+  <!-- END: header -->
+
+<section class="probootstrap-slider flexslider2 page-inner">
+    <div class="overlay"></div>
+    <div class="probootstrap-wrap-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+
+            <div class="page-title probootstrap-animate">
+              <div class="probootstrap-breadcrumbs">
+                <a href="#">Home</a><span><a href="{% url 'about:info' %}">About</a></span>
+              </div>
+              <h1>About Us</h1>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="slides">
+      <li style="background-image: url(img/slider_1.jpg);"></li>
+      <li style="background-image: url(img/slider_4.jpg);"></li>
+      <li style="background-image: url(img/slider_2.jpg);"></li>
+    </ul>
+</section>
+  <!-- END: slider  -->
+
+{% for information in info %}
+
+
+{% if forloop.counter|divisibleby:2 %}
+
+	<section class="probootstrap-half reverse">
+    <div class="image-wrap">
+      <div class="image" style="background-image: url({{information.image.url}});"></div>
+    </div>
+     <div class="text">
+      <p class="mb10 subtitle">{{information.sub_title}}</p>
+      <h3 class="mt0 mb40">{{information.title}}</h3>
+      <p>{{information.description}}</p>
+      <p><a href="#" class="btn btn-primary mb10">Find out more</a></p>
+    </div>
+	</section>
+
+{% else %}
+	<section class="probootstrap-half">
+    <div class="image-wrap">
+      <div class="image" style="background-image: url({{information.image.url}});"></div>
+    </div>
+    <div class="text">
+      <p class="mb10 subtitle">{{information.sub_title}}</p>
+      <h3 class="mt0 mb40">{{information.title}}</h3>
+      <p>{{information.description}}</p>
+      <p><a href="#" class="btn btn-primary mb10">Find out more</a></p>
+    </div>
+</section>
+
+{% endif %}
+
+{% endfor %}
+{% endblock %}
+
+ 
