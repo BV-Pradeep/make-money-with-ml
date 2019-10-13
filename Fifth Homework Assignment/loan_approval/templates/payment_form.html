@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+
+{% block body %}
+	<section class="probootstrap-slider flexslider2 page-inner">
+    <div class="overlay"></div>
+    <div class="probootstrap-wrap-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+
+            <div class="page-title probootstrap-animate">
+              <div class="probootstrap-breadcrumbs">
+                <a href="#">Home</a><span><a href="{% url 'accounts:login' %}">Login</a></span>
+              </div>
+              <h1>Pay</h1>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="slides">
+      <li style="background-image: url(img/slider_1.jpg);"></li>
+      <li style="background-image: url(img/slider_4.jpg);"></li>
+      <li style="background-image: url(img/slider_2.jpg);"></li>
+    </ul>
+  </section>
+  <!--End of slider-->
+
+<section class="probootstrap-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <form action="" method="POST">
+			{% csrf_token %}
+        	<script
+            src="https://checkout.razorpay.com/v1/checkout.js"
+            data-key="rzp_test_HNcMCOUHPcHzn3"
+            data-amount="5100"
+            data-name="Daft Punk"
+            data-description="Purchase Description"
+            data-image="vk.jpg"
+            data-netbanking="true"
+            data-description="Tron Legacy"
+            data-prefill.name="Harshil Mathur"
+            data-prefill.email="harshil@razorpay.com"
+            data-prefill.contact="9999999999"
+            data-notes.shopping_order_id="21">
+        	</script>
+        	<input type="hidden" name="shopping_order_id" value="21">
+			</form>
+      </div>
+  </div>
+
+</div>
+</section>
+{% endblock %}
